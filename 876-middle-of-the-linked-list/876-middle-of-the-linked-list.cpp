@@ -12,17 +12,12 @@ class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
         ListNode *p = head, *q = head;
-        int counter = 0;
-        while(p!=NULL){
-            counter+=1;
-            p=p->next;
+        if(head!=NULL){
+            while(p!=NULL && p->next!=NULL){
+                p=p->next->next;
+                q=q->next;
+            }
         }
-        int middle = (counter/2)+1;
-        int c = 0;
-        while(++c!=middle){
-            q=q->next;
-        }
-        cout<<counter<<"\n";
         return q;
     }
 };
